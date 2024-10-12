@@ -40,7 +40,7 @@ def create_author(
         author: schemas.AuthorCreate,
         db: Session = Depends(get_db)
 ) -> schemas.Author:
-    return create_author(db=db, book=author)
+    return create_author(db=db, author=author)
 
 
 @app.get(API_PREFIX + "authors/{id}/", response_model=schemas.Author)

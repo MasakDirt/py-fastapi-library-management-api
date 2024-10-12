@@ -12,7 +12,7 @@ def get_all_authors(
     query = db.query(models.Author)
 
     if limit:
-        query = query.offset(limit)
+        query = query.limit(limit)
 
     if skip:
         query = query.offset(skip)
@@ -48,7 +48,7 @@ def get_all_books(
         query = query.filter(models.Book.author_id == author_id)
 
     if limit:
-        query = query.offset(limit)
+        query = query.limit(limit)
 
     if skip:
         query = query.offset(skip)
