@@ -9,21 +9,11 @@ from crud import (
     get_all_books,
     create_book,
 )
-from database import SessionLocal
+from database import get_db
+from settings import API_PREFIX
 
 
 app = FastAPI()
-
-API_PREFIX = "/api/v1/"
-
-
-def get_db() -> Session:
-    db = SessionLocal()
-
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 @app.get(API_PREFIX + "authors/", response_model=list[schemas.Author])
